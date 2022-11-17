@@ -1,6 +1,6 @@
 let arr = [1, 2, 3, 4, 5];
 
-// Map method takes only one callback function
+// Map method takes only one callback function but returns a new Array
 
 Array.prototype.myMap = function (fn) {
   let res = [];
