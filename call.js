@@ -17,9 +17,11 @@ Function.prototype.myCall = function (context = {}, ...args) {
   let symbol = Symbol();
   
   context[symbol] = this;
-  context[symbol](...args);
+  let result = context[symbol](...args);
   
   delete(context[symbol])
+  
+  return result
 };
 
 personDetail.myCall(person, 42, 2022);
