@@ -13,8 +13,13 @@ let personDetail = function (age, year) {
 // Takes the context as an argument and following args which can be anything
 
 Function.prototype.myCall = function (context = {}, ...args) {
-  context.fn = this;
-  context.fn(...args);
+  // Creating a unique function name in context obj so that no issue of duplicacy.
+  let symbol = Symbol();
+  
+  context[symbol] = this;
+  context[symbol](...args);
+  
+  delete(context[symbol])
 };
 
 personDetail.myCall(person, 42, 2022);
